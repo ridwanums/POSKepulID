@@ -1,0 +1,2 @@
+rootProject.name = "Ambarrukmo"
+include ':app'

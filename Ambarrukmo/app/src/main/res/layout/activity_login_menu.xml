@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MenuLoginActivity"
+    android:background="@drawable/img_background">
+
+    <ImageView
+        android:id="@+id/image_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo_ss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/text_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/image_login"
+        android:text="@string/lorem"
+        android:textSize="@dimen/_14sdp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_40sdp"/>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brown"
+        app:layout_constraintTop_toBottomOf="@+id/text_login"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:text="@string/register"
+        android:textSize="12sp"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/text_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginEnd="@dimen/_50sdp"
+        android:text="@string/login"
+        android:textSize="12sp"
+        android:textColor="@color/brown"
+        android:elevation="1dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

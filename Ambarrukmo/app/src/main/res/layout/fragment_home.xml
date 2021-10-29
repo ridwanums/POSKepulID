@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/layout_point"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessLeaf">
+        <TextView
+            android:id="@+id/text_mypoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/my_point"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/text_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="0"
+            android:textColor="@color/indian_red"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.smarteist.autoimageslider.SliderPager
+                android:id="@+id/image_home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                app:sliderAutoCycleDirection="right"
+                app:sliderIndicatorGravity="bottom|right"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reycle_categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@id/image_home_banner"
+                android:scrollbars="none"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_merchant_categories"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/reycle_categories"
+                android:background="@color/grey"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layout_getDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/text_dinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="@color/brown"
+                        android:layout_below="@+id/text_dinner"
+                        android:layout_marginStart="15sp"/>
+
+                    <TextView
+                        android:id="@+id/text_viewall_dinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_air" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_home_dinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_dinner"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_recycleview_home"
+                        android:scrollbars="none"
+                        tools:itemCount="1"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_getHeart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/text_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="@color/brown"
+                        android:layout_below="@+id/text_heart"
+                        android:layout_marginStart="15sp"/>
+
+                    <TextView
+                        android:id="@+id/text_viewall_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_air" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_home_heart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_heart"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_home_heart"
+                        android:scrollbars="none"
+                        tools:itemCount="1"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_getPamper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/text_Pamper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="Pamper Yourself with a spa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="@color/brown"
+                        android:layout_below="@+id/text_Pamper"
+                        android:layout_marginStart="15sp"/>
+
+                    <TextView
+                        android:id="@+id/text_viewall_pamper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_air" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_home_pamper"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_Pamper"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_home_heart"
+                        android:scrollbars="none"
+                        tools:itemCount="1"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/homeicwhite"/>
+    <item
+        android:id="@+id/valet"
+        android:title="Valet"
+        android:icon="@drawable/valeticwhite"/>
+    <item
+        android:id="@+id/map"
+        android:title="Map"
+        android:icon="@drawable/mapicwhite"/>
+    <item
+        android:id="@+id/member"
+        android:title="Member"
+        android:icon="@drawable/membericwhite"/>
+    <item
+        android:id="@+id/setting"
+        android:title="Setting"
+        android:icon="@drawable/settingicwhite"/>
+</menu>

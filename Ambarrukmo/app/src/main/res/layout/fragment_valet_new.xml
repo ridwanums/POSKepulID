@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ValetNewFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/vouchershape"
+                android:elevation="@dimen/_1sdp"
+                android:padding="@dimen/_20sdp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valley number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <TextView
+                    android:id="@+id/text_valet_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="2040"
+                    android:textStyle="bold"
+                    android:textColor="@color/indian_red"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp"/>
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/grey"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="39dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Brand"
+                    android:inputType="textEmailAddress"
+                    android:paddingTop="@dimen/_21sdp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_colour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/grey"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="39dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_colour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Colour"
+                    android:inputType="textEmailAddress"
+                    android:paddingTop="@dimen/_21sdp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_input_Police"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/grey"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="39dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_police"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Police Number"
+                    android:inputType="textEmailAddress"
+                    android:paddingTop="@dimen/_21sdp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/layout_date_start"
+                    android:layout_width="@dimen/_125sdp"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/ic_bg_jadwal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/_10sdp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintAnimationEnabled="false"
+                    app:hintEnabled="false">
+
+                    <TextView
+                        android:id="@+id/text_date_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableEnd="@drawable/ic_date"
+                        android:hint="Date"
+                        android:scrollbarSize="@dimen/_14sdp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_date_end"
+                    android:layout_width="@dimen/_125sdp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/ic_bg_jadwal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/_10sdp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintAnimationEnabled="false"
+                    app:hintEnabled="false">
+
+
+                    <TextView
+                        android:id="@+id/text_date_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableEnd="@drawable/ic_time"
+                        android:hint="Time"
+                        android:scrollbarSize="@dimen/_14sdp"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_booking"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Booking Valley"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:textAllCaps="false"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

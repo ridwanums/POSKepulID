@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.SettingFragment"
+    android:padding="@dimen/_20sdp">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_my_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Profile"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"/>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"
+                android:layout_below="@id/text_my_profile"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/witch_button"
+                android:layout_width="41dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="9dp"
+                android:thumb="@drawable/ic_thumb"
+                app:track="@drawable/ic_track" />
+
+            <TextView
+                android:id="@+id/text_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Notification"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"
+                android:layout_below="@id/text_notification"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+            <TextView
+                android:id="@+id/text_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view2"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Abaout PASC"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/text_faq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_about"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="FAQ"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/text_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_faq"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Privacy Police"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/text_Term"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_privacy"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Trems of Use"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/text_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_Term"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Contact Us"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/text_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_contact"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Our Location"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"
+                android:layout_below="@id/text_location"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+            <TextView
+                android:id="@+id/text_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view3"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Logout"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

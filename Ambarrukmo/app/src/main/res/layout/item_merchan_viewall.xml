@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_10sdp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="@dimen/_1sdp"
+        app:cardCornerRadius="@dimen/_5sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_10sdp">
+            <ImageView
+                android:id="@+id/image_merchant"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/text_name_merchants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/image_merchant"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:text="Kintan Buffet"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/text_ratting"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="25dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="8.3"
+                android:textColor="@color/black"
+                android:background="@drawable/ic_bg_ratting"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"/>
+            <TextView
+                android:id="@+id/text_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/image_merchant"
+                android:layout_below="@id/text_name_merchants"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:text="Lorem Epsum : Ambarukmo Plaza"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+            <TextView
+                android:id="@+id/text_Category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/image_merchant"
+                android:layout_below="@id/text_place"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:text="CATEGORY : Dining"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_10sdp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_7sdp"
+        android:elevation="@dimen/_1sdp"
+        app:cardCornerRadius="@dimen/_10sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp">
+            <TextView
+                android:id="@+id/text_item_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#0000"
+                android:textStyle="bold"
+                android:textColor="@color/indian_red"
+                android:textSize="@dimen/_14sdp"/>
+
+            <TextView
+                android:id="@+id/text_item_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Completed"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/green"/>
+
+            <TextView
+                android:id="@+id/text_item_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#Nama Mobil"
+                android:layout_below="@id/text_item_number"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"/>
+
+            <TextView
+                android:id="@+id/text_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 December 2018"
+                android:layout_below="@id/text_item_status"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/text_item_flat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B 1234 UDN"
+                android:layout_below="@id/text_item_brand"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/text_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_item_date"
+                android:layout_alignParentEnd="true"
+                android:text="time" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
