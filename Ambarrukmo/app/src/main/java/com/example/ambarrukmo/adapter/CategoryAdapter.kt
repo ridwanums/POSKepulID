@@ -27,7 +27,7 @@ class CategoryAdapter (val data : MerchantCategory) : RecyclerView.Adapter<Categ
         holder.binding.textTitle.text = dataItem.pasc_discount_txt
         holder.binding.textTime.text = dataItem.updated_at
 
-        holder.binding.root.setOnClickListener {
+        holder.binding.btnView.setOnClickListener {
             val detail = Intent(context, DetailMerchantsActivity::class.java)
             context.startActivity(detail)
         }
