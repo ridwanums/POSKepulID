@@ -2,15 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_160sdp">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <ImageView
             android:id="@+id/image_item_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img_banner_1"/>
-    </RelativeLayout>
+            android:src="@drawable/img_banner_1"
+            android:scaleType="fitXY"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

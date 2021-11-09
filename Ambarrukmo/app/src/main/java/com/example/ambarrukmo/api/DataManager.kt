@@ -88,6 +88,9 @@ class DataManager {
     var memberImage :String? get() {return getTempString(MEMBER_IMAGE)} set(value) = putTempString(MEMBER_IMAGE,value)
     var memberLat :String? get() {return getTempString(MEMBER_LAT)} set(value) = putTempString(MEMBER_LAT,value)
     var memberLong :String? get() {return getTempString(MEMBER_LONG)} set(value) = putTempString(MEMBER_LONG,value)
+    var floormap :String? get() {return getTempString(FLOOR_MAP)} set(value) = putTempString(FLOOR_MAP,value)
+    var merchant_id : String? get() {return getTempString(MERCHANT_ID)} set(value) = putTempString(
+        MERCHANT_ID, value)
 
     var languageId :String? get() {return getTempString(LANGUAGE_ID)} set(value) = putTempString(LANGUAGE_ID,value)
     var languageName :String? get() {return getTempString(LANGUAGE_NAME)} set(value) = putTempString(LANGUAGE_NAME,value)
@@ -105,6 +108,8 @@ class DataManager {
         private const val MEMBER_ID = "member-id"
         private const val COMPANY_CODE = "company-code"
         private const val NUMBER_VALET = "number-valet"
+        private const val FLOOR_MAP = "floor-map"
+        private const val MERCHANT_ID = "merchant-id"
 
         //SOSMED
         private const val PROVIDER_LOGIN = "provider-login"

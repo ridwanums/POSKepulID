@@ -24,8 +24,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textInputNohp.setText("087886683155")
-        binding.textInputPassword.setText("1234")
+        binding.textInputNohp.setText("081288581031")
+        binding.textInputPassword.setText("123456")
         binding.imageClose.setOnClickListener {
             onBackPressed()
         }

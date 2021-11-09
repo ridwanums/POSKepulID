@@ -40,4 +40,14 @@
     <string name="dining">Dining</string>
     <string name="search_do_you_want_if">Search do you Want if</string>
     <string name="highlight">Highlight</string>
+    <string name="my_profile">My Profile</string>
+
+    <string-array name="floor">
+        <item>LG</item>
+        <item>GF</item>
+        <item>L1</item>
+        <item>L2</item>
+        <item>L3</item>
+        <item>L3A</item>
+    </string-array>
 </resources>

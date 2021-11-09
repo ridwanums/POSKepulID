@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import co.id.codelabs.thesavia.utils.InjectorUtils
 import com.example.ambarrukmo.R
 import com.example.ambarrukmo.adapter.MemberFragmentAdapter
+import com.example.ambarrukmo.api.ApiCallback
 import com.example.ambarrukmo.databinding.FragmentMemberBinding
+import com.example.ambarrukmo.viewmodel.auth.AuthViewModel
+import com.example.ambarrukmo.viewmodel.auth.result.AuthenticateUserItem
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,10 @@ class MemberFragment : Fragment() {
     private var _binding : FragmentMemberBinding? = null
     private val binding get() = _binding!!
 
+    private val authViewModel : AuthViewModel by viewModels {
+        InjectorUtils.ProviderAuthFactory()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,6 +50,7 @@ class MemberFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMemberBinding.inflate(layoutInflater, container, false)
         setTab()
+        setData()
         return binding.root
     }
 
@@ -52,6 +62,29 @@ class MemberFragment : Fragment() {
         binding.viewPager.adapter = (MemberFragmentAdapter(title, childFragmentManager))
         binding.tabLayout.setupWithViewPager(binding.viewPager)
 
+    }
+
+    private fun setData() {
+        authViewModel.getAuthenticeUserData().observe(requireActivity()){
+            when(it){
+                is ApiCallback.OnLoading -> {
+
+                }
+                is ApiCallback.OnSuccess -> {
+                    it.data?.let { it1 -> getData(it1) }
+                }
+                is ApiCallback.OnError -> {
+
+                }
+            }
+        }
+    }
+
+    private fun getData(data: AuthenticateUserItem) {
+        binding.textName.text = data.mbr_nama
+        binding.textType.text = data.type
+        binding.textNumberPoint.text = data.mbr_point.toString() +" Point"
+        binding.textCode.text = data.mbr_kode
     }
 
     companion object {

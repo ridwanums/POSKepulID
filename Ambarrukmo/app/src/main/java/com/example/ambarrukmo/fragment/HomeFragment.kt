@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.OrientationHelper
 import co.id.codelabs.thesavia.utils.InjectorUtils
 import com.example.ambarrukmo.R
 import com.example.ambarrukmo.activity.LoginActivity
-import com.example.ambarrukmo.activity.ViewAllPromotionListActivity
 import com.example.ambarrukmo.adapter.*
 import com.example.ambarrukmo.api.ApiCallback
 import com.example.ambarrukmo.api.DataManager
@@ -24,7 +23,6 @@ import com.example.ambarrukmo.viewmodel.product.result.MerchantCategoriesItem
 import com.example.ambarrukmo.viewmodel.promo.PromoViewModel
 import com.example.ambarrukmo.viewmodel.promo.result.PromoEventItem
 import com.example.ambarrukmo.viewmodel.promo.result.PromotionCategoryItem
-import com.example.ambarrukmo.viewmodel.promo.result.PromotionListItem
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
@@ -78,18 +76,15 @@ class HomeFragment : Fragment() {
 
     private fun setView(view: View?) {
         cardSlider = view?.findViewById(R.id.image_item_slide)
+        setSlideAdapter()
 
     }
 
     override fun onResume() {
         super.onResume()
-        setViewPromotion()
-        setViewPromotionEvent()
-        setViewPromotionCategory()
         setCategories()
-        setSlideAdapter()
-        setEvent()
         setBanner()
+        setPromoCategory()
     }
 
     private fun setCategories() {
@@ -130,7 +125,6 @@ class HomeFragment : Fragment() {
                 }
                 is ApiCallback.OnError -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-                    val out = Intent(requireContext(), LoginActivity::class.java)
                     DataManager.getInstance().isLogin = false
 
                 }
@@ -147,119 +141,37 @@ class HomeFragment : Fragment() {
     private fun setSlideAdapter() {
         cardSlider?.setSliderAdapter(adapter!!)
         cardSlider?.startAutoCycle()
+        cardSlider?.setAutoCycle(true)
         cardSlider?.setIndicatorAnimationDuration(600)
         cardSlider?.setSliderAnimationDuration(600)
-        cardSlider?.scrollTimeInSec = 1
-        cardSlider?.setIndicatorAnimation(IndicatorAnimations.FILL)
+        cardSlider?.setScrollTimeInSec(3)
+        cardSlider?.setIndicatorAnimation(IndicatorAnimations.SLIDE)
+        cardSlider?.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH)
         cardSlider?.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION)
     }
 
-
-    private fun setEvent() {
-        binding.textViewallDinner.setOnClickListener {
-            val view = Intent(requireContext(), ViewAllPromotionListActivity::class.java)
-            startActivity(view)
-//            Toast.makeText(requireContext(), "On Develop", Toast.LENGTH_LONG).show()
-        }
-    }
-
-
-
-    @SuppressLint("SetTextI18n")
-    private fun setViewPromotion() {
-        binding.textDinner.text = "Promotion List"
-        promoViewModel.getPromotionData().observe(requireActivity()){
-            when(it){
-                is ApiCallback.OnLoading -> {
-
-                }
-                is ApiCallback.OnSuccess -> {
-                    it.data?.let { it1 -> setDataPromotion(it1) }
-                }
-                is ApiCallback.OnError -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-                    val out = Intent(requireContext(), LoginActivity::class.java)
-                    out.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(out)
-
-                }
-            }
-        }
-
-
-    }
-
-    @SuppressLint("WrongConstant")
-    private fun setDataPromotion(data: PromotionListItem) {
-//        dividerItemDecoration = DividerItemDecoration(requireContext(),LinearLayoutManager.VERTICAL)
-        binding.recycleHomeDinner.adapter = PromoListAdapter(data)
-//        binding.recycleHomeDinner.addItemDecoration(dividerItemDecoration!!)
-        binding.recycleHomeDinner.layoutManager = LinearLayoutManager(requireContext(), OrientationHelper.HORIZONTAL, false)
-
-    }
-
-
-
-
-    @SuppressLint("SetTextI18n")
-    private fun setViewPromotionCategory() {
-        binding.textHeart.text = "Promotion Category"
+    private fun setPromoCategory() {
         promoViewModel.getPromotionCategoryData().observe(requireActivity()){
             when(it){
                 is ApiCallback.OnLoading -> {
 
                 }
                 is ApiCallback.OnSuccess -> {
-                    it.data?.let { it1 -> setDataPromotionCategory(it1) }
+                    it.data?.let { it1 -> getpromoCategory(it1) }
                 }
                 is ApiCallback.OnError -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-                    val out = Intent(requireContext(), LoginActivity::class.java)
-                    out.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(out)
-
-                }
-            }
-        }
-
-    }
-
-    @SuppressLint("WrongConstant")
-    private fun setDataPromotionCategory(data: PromotionCategoryItem) {
-//        dividerItemDecoration = DividerItemDecoration(requireContext(),LinearLayoutManager.VERTICAL)
-//        binding.recycleHomeHeart.addItemDecoration(dividerItemDecoration!!)
-        binding.recycleHomeHeart.adapter = PromoCategoryAdapter(data)
-        binding.recycleHomeHeart.layoutManager = LinearLayoutManager(requireContext(), OrientationHelper.HORIZONTAL, false)
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun setViewPromotionEvent() {
-        binding.textPamper.text = "Promo Event"
-        promoViewModel.getPromotionEventData().observe(requireActivity()){
-            when(it){
-                is ApiCallback.OnLoading -> {
-
-                }
-                is ApiCallback.OnSuccess -> {
-                    it.data?.let { it1 -> setDataPromotionEvent(it1) }
-                }
-                is ApiCallback.OnError -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
-                    val out = Intent(requireContext(), LoginActivity::class.java)
-                    out.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(out)
+                    DataManager.getInstance().isLogin = false
 
                 }
             }
         }
     }
 
-    @SuppressLint("WrongConstant")
-    private fun setDataPromotionEvent(data: PromoEventItem) {
-//        dividerItemDecoration = DividerItemDecoration(requireContext(),LinearLayoutManager.VERTICAL)
-//        binding.recycleHomePamper.addItemDecoration(dividerItemDecoration!!)
-        binding.recycleHomePamper.adapter = PromoEventAdapter(data)
-        binding.recycleHomePamper.layoutManager = LinearLayoutManager(requireContext(), OrientationHelper.HORIZONTAL, false)
+    private fun getpromoCategory(data: PromotionCategoryItem) {
+        binding.recycleCategoriPromo.adapter = CategoriesHomeAdapter(data)
+        binding.recycleCategoriPromo.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
     }
 
     companion object {

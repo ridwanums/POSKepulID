@@ -27,46 +27,10 @@ class ImageSliderAdapter(val data : PromoEventItem) : SliderViewAdapter<ImageSli
 
     override fun onBindViewHolder(viewHolder: SliderAdapterVH?, position: Int) {
         val dataItem = data[position]
-        val context = viewHolder!!.itemView.context
-        if(dataItem.promo_image.isNotEmpty()){
-            Glide.with(context)
+        val context = viewHolder?.itemView?.context
+            Glide.with(context!!)
                 .load(dataItem.promo_image)
+                .fitCenter()
                 .into(viewHolder.binding.imageItemSlider)
-        } else {
-            Glide.with(context)
-                .load(R.drawable.no_image)
-                .into(viewHolder.binding.imageItemSlider)
-        }
     }
 }
-//    override fun getCount(): Int {
-//        return data.size
-//    }
-//
-//
-//    override fun onCreateViewHolder(parent: ViewGroup?): ImageSliderAdapter.SliderAdapterVH {
-//        val layoutInflater = LayoutInflater.from(parent?.context).inflate(R.layout.item_image_slider, null)
-//        return SliderAdapterVH(layoutInflater)
-//    }
-//
-//    override fun onBindViewHolder(viewHolder: ImageSliderAdapter.SliderAdapterVH?, position: Int) {
-//        val dataItem : PromoEventItemItem = data[position]
-//        val context = viewHolder?.itemView?.context
-//
-//        if (data.isEmpty()){
-//            Glide.with(context!!)
-//                .load(R.drawable.no_image)
-//                .into(viewHolder.banner)
-//        } else {
-//            Glide.with(context!!)
-//                .load(dataItem.promo_image)
-//                .into(viewHolder.banner)
-//        }
-//    }
-//
-//    inner class SliderAdapterVH(itemView: View?) : ViewHolder(itemView) {
-//        var banner: ImageView = itemView!!.findViewById(R.id.image_item_slide)
-//
-//    }
-//
-//}

@@ -3,6 +3,8 @@ package com.example.ambarrukmo.viewmodel.auth
 import com.example.ambarrukmo.api.*
 import com.example.ambarrukmo.viewmodel.appconfig.AppConfigService
 import com.example.ambarrukmo.viewmodel.appconfig.walktrough.WalktroughItemList
+import com.example.ambarrukmo.viewmodel.auth.result.AuthenticateUserItem
+import com.example.ambarrukmo.viewmodel.auth.result.CardUseInfoItem
 import com.example.ambarrukmo.viewmodel.auth.result.LoginItem
 import com.example.ambarrukmo.viewmodel.auth.result.RegisterItem
 import okhttp3.RequestBody
@@ -18,6 +20,18 @@ class AuthRepository private constructor(): BaseRepository(){
     suspend fun getLoginApi(requestBody: RequestBody) : ApiResult<ApiResponse<LoginItem?>?> {
         return safeApiCall (call =
         { RetrofitFactory.retrofit(AppConstants.urlMaster).create(AuthService::class.java).getLogin(requestBody)}
+        )
+    }
+
+    suspend fun getAuthenticeUserApi() : ApiResult<ApiResponse<AuthenticateUserItem?>?> {
+        return safeApiCall (call =
+        { RetrofitFactory.retrofit(AppConstants.urlMaster).create(AuthService::class.java).getAuthenticeUser()}
+        )
+    }
+
+    suspend fun getCardInfoApi() : ApiResult<ApiResponse<CardUseInfoItem?>?> {
+        return safeApiCall (call =
+        { RetrofitFactory.retrofit(AppConstants.urlMaster).create(AuthService::class.java).getCardInfo()}
         )
     }
 

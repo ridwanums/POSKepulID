@@ -7,8 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ambarrukmo.SplashScreenActivity
-import com.example.ambarrukmo.activity.LoginActivity
-import com.example.ambarrukmo.activity.WalktroughActivity
+import com.example.ambarrukmo.activity.*
 import com.example.ambarrukmo.databinding.ItemMemberVoucherBinding
 import com.example.ambarrukmo.databinding.ItemMerchantCategoriesBinding
 import com.example.ambarrukmo.viewmodel.product.result.MerchantCategoriesItem
@@ -30,12 +29,30 @@ class MerchantCategoriesAdapter (val data : MerchantCategoriesItem) : RecyclerVi
 
         holder.binding.root.setOnClickListener {
             when(dataItem.cat_id){
-                1 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
-                2 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
-                3 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
-                4 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
-                5 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
-                6 -> Toast.makeText(context, "On Develop", Toast.LENGTH_LONG).show()
+                1 -> {
+                    val dining = Intent(context, DiningActivity::class.java)
+                    context.startActivity(dining)
+                }
+                2 -> {
+                    val eLife = Intent(context, ELifeStyleActivity::class.java)
+                    context.startActivity(eLife)
+                }
+                3 -> {
+                    val style = Intent(context, StyleActivity::class.java)
+                    context.startActivity(style)
+                }
+                4 -> {
+                    val beauty = Intent(context, BeautyActivity::class.java)
+                    context.startActivity(beauty)
+                }
+                5 -> {
+                    val living = Intent(context, HomeLivingActivity::class.java)
+                    context.startActivity(living)
+                }
+                6 -> {
+                    val kids = Intent(context, KidsActivity::class.java)
+                    context.startActivity(kids)
+                }
             }
         }
     }

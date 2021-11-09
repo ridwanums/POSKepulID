@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.EditProfileActivity"
+    android:background="@color/grey_old">
+
+    <RelativeLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:background="@color/white"
+        android:padding="@dimen/_20sdp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_profile"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:shapeAppearance="@style/circle"
+            android:src="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/text_take"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to change photo"
+            android:layout_below="@id/image_profile"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_thename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The name your enter will be saved as contact"
+            android:layout_below="@id/text_take"
+            android:layout_marginTop="@dimen/_25sdp"/>
+
+        <TextView
+            android:id="@+id/text_fullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_thename"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Full name"/>
+
+        <EditText
+            android:id="@+id/text_name_full"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_below="@id/text_fullname"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:layout_below="@id/text_name_full"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:backgroundTint="@color/orange"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

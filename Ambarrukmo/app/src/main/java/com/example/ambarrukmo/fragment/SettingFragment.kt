@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.ambarrukmo.R
 import com.example.ambarrukmo.SplashScreenActivity
+import com.example.ambarrukmo.activity.*
 import com.example.ambarrukmo.api.DataManager
 import com.example.ambarrukmo.databinding.FragmentSettingBinding
 
@@ -51,6 +53,41 @@ class SettingFragment : Fragment() {
             val out = Intent(context, SplashScreenActivity::class.java)
             DataManager.getInstance().isLogin = false
             startActivity(out)
+        }
+
+        binding.textMyProfile.setOnClickListener {
+            val profile = Intent(context, MyProfileActivity::class.java)
+            startActivity(profile)
+        }
+
+        binding.textAbout.setOnClickListener {
+            val about = Intent(context, AboutPascActivity::class.java)
+            startActivity(about)
+        }
+
+        binding.textFaq.setOnClickListener {
+            val faq = Intent(context, FaqActivity::class.java)
+            startActivity(faq)
+        }
+
+        binding.textContact.setOnClickListener {
+            val contact = Intent(context, ContactActivity::class.java)
+            startActivity(contact)
+        }
+
+        binding.textTerm.setOnClickListener {
+            val term = Intent(context, TermOfUseActivity::class.java)
+            startActivity(term)
+        }
+
+        binding.textPrivacy.setOnClickListener {
+            val police = Intent(context, PrivacyPoliceActivity::class.java)
+            startActivity(police)
+        }
+
+        binding.textLocation.setOnClickListener {
+            val location = Intent(context, SelectMapActivity::class.java)
+            startActivity(location)
         }
     }
 

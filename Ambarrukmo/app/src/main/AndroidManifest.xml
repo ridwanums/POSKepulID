@@ -3,6 +3,8 @@
     package="com.example.ambarrukmo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".AmbarukmoAplication"
@@ -13,9 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ambarrukmo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DiningActivity"></activity>
+        <activity android:name=".activity.DetailMerchantsActivity"></activity>
+        <activity android:name=".activity.KidsActivity" />
+        <activity android:name=".activity.HomeLivingActivity" />
+        <activity android:name=".activity.BeautyActivity" />
+        <activity android:name=".activity.StyleActivity" />
+        <activity android:name=".activity.ELifeStyleActivity" />
+        <activity android:name=".activity.SelectMapActivity" />
+        <activity android:name=".activity.ContactActivity" />
+        <activity android:name=".activity.TermOfUseActivity" />
+        <activity android:name=".activity.PrivacyPoliceActivity" />
+        <activity android:name=".activity.FaqActivity" />
+        <activity android:name=".activity.AboutPascActivity" />
+        <activity android:name=".activity.EditProfileActivity" />
+        <activity android:name=".activity.MyProfileActivity" />
+        <activity android:name=".activity.ViewAllEventActivity" />
+        <activity android:name=".activity.ViewAllWhatNameActivity" />
+        <activity android:name=".activity.DiningActivity" />
         <activity android:name=".activity.PromoDetailListActivity" />
-        <activity android:name=".activity.ViewAllPromotionListActivity" />
         <activity android:name=".activity.DetailVoucherActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.LoginActivity" />

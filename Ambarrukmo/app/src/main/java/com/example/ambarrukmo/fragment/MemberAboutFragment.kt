@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import co.id.codelabs.thesavia.utils.InjectorUtils
+import co.id.codelabs.thesavia.utils.RecentUtils
+import com.bumptech.glide.util.Util
 import com.example.ambarrukmo.R
+import com.example.ambarrukmo.api.ApiCallback
 import com.example.ambarrukmo.databinding.FragmentMemberAboutBinding
+import com.example.ambarrukmo.viewmodel.auth.AuthViewModel
+import com.example.ambarrukmo.viewmodel.auth.result.CardUseInfoItem
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +32,10 @@ class MemberAboutFragment : Fragment() {
     private var _binding : FragmentMemberAboutBinding? = null
     private val binding get() = _binding!!
 
+    private val authViewModel: AuthViewModel by viewModels {
+        InjectorUtils.ProviderAuthFactory()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,7 +50,29 @@ class MemberAboutFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMemberAboutBinding.inflate(inflater, container, false)
+        setData()
         return binding.root
+    }
+
+    private fun setData() {
+        authViewModel.getCardInfoData().observe(requireActivity()){
+            when(it) {
+                is ApiCallback.OnLoading -> {
+
+                }
+                is ApiCallback.OnSuccess -> {
+                    it.data?.let { it1 -> getData(it1) }
+                }
+                is ApiCallback.OnError -> {
+
+                }
+            }
+        }
+    }
+
+    private fun getData(data: CardUseInfoItem) {
+        val desc = RecentUtils.fromHtml(data.about)
+        binding.textDescAbout.text = desc
     }
 
     companion object {

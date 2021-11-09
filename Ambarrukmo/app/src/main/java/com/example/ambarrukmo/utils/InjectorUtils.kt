@@ -8,6 +8,8 @@ import com.example.ambarrukmo.viewmodel.appconfig.AppConfigRepository
 import com.example.ambarrukmo.viewmodel.appconfig.AppConfigViewModel
 import com.example.ambarrukmo.viewmodel.auth.AuthRepository
 import com.example.ambarrukmo.viewmodel.auth.AuthViewModel
+import com.example.ambarrukmo.viewmodel.content.ContentRepository
+import com.example.ambarrukmo.viewmodel.content.ContentViewModel
 import com.example.ambarrukmo.viewmodel.product.ProductRepository
 import com.example.ambarrukmo.viewmodel.product.ProductViewModel
 import com.example.ambarrukmo.viewmodel.promo.PromoRepository
@@ -68,6 +70,16 @@ object InjectorUtils {
 
         return object : ViewModelProvider.NewInstanceFactory(){
             override fun <T : ViewModel> create(modelClass: Class<T>) = ProductViewModel(
+                repository
+            ) as T
+        }
+    }
+
+    fun ProvideContentfactory() : ViewModelProvider.NewInstanceFactory{
+        val repository = ContentRepository.getInstance()
+
+        return object : ViewModelProvider.NewInstanceFactory(){
+            override fun <T : ViewModel> create(modelClass: Class<T>) = ContentViewModel(
                 repository
             ) as T
         }

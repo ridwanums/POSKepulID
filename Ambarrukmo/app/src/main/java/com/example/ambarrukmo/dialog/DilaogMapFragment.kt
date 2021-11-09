@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.ambarrukmo.R
+import androidx.fragment.app.viewModels
+import co.id.codelabs.thesavia.utils.InjectorUtils
+import com.example.ambarrukmo.adapter.DialogAdater
+import com.example.ambarrukmo.api.ApiCallback
+import com.example.ambarrukmo.api.DataManager
 import com.example.ambarrukmo.databinding.FragmentDilaogMapBinding
-import com.example.ambarrukmo.databinding.FragmentMapBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.dialog.MaterialDialogs
+import com.example.ambarrukmo.viewmodel.product.ProductViewModel
+import com.example.ambarrukmo.viewmodel.product.result.LevelFloorItem
+import okhttp3.MultipartBody
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +35,9 @@ class DilaogMapFragment : DialogFragment() {
     private var _bindning : FragmentDilaogMapBinding? = null
     private val binding get() = _bindning!!
 
+    private val productViewModel : ProductViewModel by viewModels {
+        InjectorUtils.ProvideProductfactory()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +53,39 @@ class DilaogMapFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         _bindning = FragmentDilaogMapBinding.inflate(inflater, container, false)
+        setDial()
+        setEvent()
         return binding.root
+    }
+
+    private fun setEvent() {
+        binding.imageClose.setOnClickListener {
+            dismiss()
+        }
+    }
+
+    private fun setDial() {
+        val formBuilder = MultipartBody.Builder()
+        formBuilder.setType(MultipartBody.FORM)
+        formBuilder.addFormDataPart("floor_code", DataManager.getInstance().floormap.toString())
+        val formBody = formBuilder.build()
+        productViewModel.getLevelFloorData(formBody).observe(requireActivity()){
+            when(it){
+                is ApiCallback.OnLoading -> {
+
+                }
+                is ApiCallback.OnSuccess -> {
+                    it.data?.let { it1 -> setAdapter(it1) }
+                }
+                is ApiCallback.OnError -> {
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun setAdapter(data: LevelFloorItem) {
+        binding.recyclerViewDialog.adapter = DialogAdater(data)
     }
 
     companion object {
