@@ -1,11 +1,13 @@
 package com.example.ambarrukmo.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.ambarrukmo.activity.DetailMerchantsActivity
 import com.example.ambarrukmo.databinding.ItemViewallBinding
 import com.example.ambarrukmo.viewmodel.product.result.MerchantListItem
 import com.example.ambarrukmo.viewmodel.product.result.MerchantListItemItem
@@ -34,6 +36,11 @@ class ViewAllAdater (val data : MerchantListItem) : RecyclerView.Adapter<ViewAll
         holder.binding.textTitle.text = dataItem.merchant_name
         holder.binding.textSubtitle.text = dataItem.merchant_location_floor_txt
         Glide.with(context).load(dataItem.merchant_logo).into(holder.binding.imageLogo)
+
+        holder.binding.root.setOnClickListener {
+            val view = Intent(context, DetailMerchantsActivity::class.java)
+            context.startActivity(view)
+        }
 
     }
 

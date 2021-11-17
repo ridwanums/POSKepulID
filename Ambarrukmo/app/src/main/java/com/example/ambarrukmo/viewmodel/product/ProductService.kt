@@ -38,6 +38,6 @@ interface ProductService {
     @GET ("merchant/category/show/6")
     suspend fun getCategoryKids(): Response<ApiResponse<MerchantCategory?>?>
 
-    @GET("merchant/show/1")
+    @GET("merchant/show/148")
     suspend fun getDetailMerchants() : Response<ApiResponse<DetailMerchantsItem?>?>
 }

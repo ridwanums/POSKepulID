@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ambarrukmo.activity.DetailMerchantsActivity
+import com.example.ambarrukmo.api.DataManager
 import com.example.ambarrukmo.databinding.ItemCategoryBinding
 import com.example.ambarrukmo.viewmodel.product.result.MerchantCategory
 
@@ -30,6 +32,9 @@ class CategoryAdapter (val data : MerchantCategory) : RecyclerView.Adapter<Categ
         holder.binding.btnView.setOnClickListener {
             val detail = Intent(context, DetailMerchantsActivity::class.java)
             context.startActivity(detail)
+            DataManager.getInstance().merchant_id = dataItem.merchant_id.toString()
+            Toast.makeText(context, DataManager.getInstance().merchant_id, Toast.LENGTH_LONG).show()
+
         }
     }
 

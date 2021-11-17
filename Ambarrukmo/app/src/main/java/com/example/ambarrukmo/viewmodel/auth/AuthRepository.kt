@@ -3,10 +3,7 @@ package com.example.ambarrukmo.viewmodel.auth
 import com.example.ambarrukmo.api.*
 import com.example.ambarrukmo.viewmodel.appconfig.AppConfigService
 import com.example.ambarrukmo.viewmodel.appconfig.walktrough.WalktroughItemList
-import com.example.ambarrukmo.viewmodel.auth.result.AuthenticateUserItem
-import com.example.ambarrukmo.viewmodel.auth.result.CardUseInfoItem
-import com.example.ambarrukmo.viewmodel.auth.result.LoginItem
-import com.example.ambarrukmo.viewmodel.auth.result.RegisterItem
+import com.example.ambarrukmo.viewmodel.auth.result.*
 import okhttp3.RequestBody
 
 class AuthRepository private constructor(): BaseRepository(){
@@ -32,6 +29,12 @@ class AuthRepository private constructor(): BaseRepository(){
     suspend fun getCardInfoApi() : ApiResult<ApiResponse<CardUseInfoItem?>?> {
         return safeApiCall (call =
         { RetrofitFactory.retrofit(AppConstants.urlMaster).create(AuthService::class.java).getCardInfo()}
+        )
+    }
+
+    suspend fun getUpdateProfileApi(requestBody: RequestBody) : ApiResult<ApiResponse<UpdateProfileItem?>?> {
+        return safeApiCall (call =
+        { RetrofitFactory.retrofit(AppConstants.urlMaster).create(AuthService::class.java).getUpdateProfile(requestBody)}
         )
     }
 

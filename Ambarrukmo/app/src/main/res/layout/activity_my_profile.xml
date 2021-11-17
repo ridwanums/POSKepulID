@@ -26,6 +26,7 @@
                 android:paddingEnd="@dimen/_20sdp"
                 android:background="@color/white">
                 <ImageView
+                    android:id="@+id/btn_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_back"
@@ -131,8 +132,10 @@
                     android:textColor="@color/black"/>
 
                 <ImageView
+                    android:id="@+id/btn_delete_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
                     android:src="@drawable/ic_delete"
                     app:layout_constraintTop_toBottomOf="@id/text_long_email"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -188,27 +191,19 @@
                     app:layout_constraintTop_toBottomOf="@id/text_Number"
                     app:layout_constraintStart_toStartOf="parent"/>
 
-                <EditText
+                <TextView
                     android:id="@+id/text_number_input"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     app:layout_constraintTop_toBottomOf="@id/text_long_number"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_40sdp"
                     android:hint="Your Number"
                     android:background="@color/white"
                     android:textSize="@dimen/_14ssp"
                     android:textColor="@color/black"/>
-
-                <ImageView
-                    android:id="@+id/img_more_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_delete"
-                    app:layout_constraintTop_toBottomOf="@id/text_long_number"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="@dimen/_15sdp"/>
 
                 <View
                     android:id="@+id/view_profile2"
@@ -262,12 +257,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_password" />
 
-                <EditText
+                <TextView
                     android:id="@+id/text_password_input"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_10sdp"
                     android:background="@color/white"
                     android:hint="Your password"
                     android:inputType="textPassword"
@@ -276,14 +272,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_long_password" />
 
-                <ImageView
-                    android:id="@+id/img_more_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:src="@drawable/ic_delete"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_long_password" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/img_more_password"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:src="@drawable/ic_delete"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/text_long_password" />-->
 
                 <View
                     android:id="@+id/view_profile3"
@@ -303,6 +299,7 @@
                     app:layout_constraintTop_toBottomOf="@id/view_profile3" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_facebook"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     app:layout_constraintTop_toBottomOf="@id/text_click"

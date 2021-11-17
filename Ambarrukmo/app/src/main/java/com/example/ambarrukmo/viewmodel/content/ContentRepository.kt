@@ -1,11 +1,12 @@
 package com.example.ambarrukmo.viewmodel.content
 
 import com.example.ambarrukmo.api.*
+import com.example.ambarrukmo.viewmodel.content.result.ContentItem
 import com.example.ambarrukmo.viewmodel.content.result.Faq
 
 class ContentRepository private constructor(): BaseRepository() {
 
-    suspend fun getFaqApi() : ApiResult<ApiResponse<Faq?>?> {
+    suspend fun getFaqApi() : ApiResult<ApiResponse<ContentItem?>?> {
         return safeApiCall (call =
         { RetrofitFactory.retrofit(AppConstants.urlMaster).create(ContentService::class.java).getFaq()}
         )

@@ -9,10 +9,7 @@ import com.example.ambarrukmo.api.ApiResult
 import com.example.ambarrukmo.api.DataManager
 import com.example.ambarrukmo.viewmodel.appconfig.AppConfigRepository
 import com.example.ambarrukmo.viewmodel.appconfig.walktrough.WalktroughItemList
-import com.example.ambarrukmo.viewmodel.auth.result.AuthenticateUserItem
-import com.example.ambarrukmo.viewmodel.auth.result.CardUseInfoItem
-import com.example.ambarrukmo.viewmodel.auth.result.LoginItem
-import com.example.ambarrukmo.viewmodel.auth.result.RegisterItem
+import com.example.ambarrukmo.viewmodel.auth.result.*
 import okhttp3.RequestBody
 
 class AuthViewModel internal constructor(private val authRepository: AuthRepository): ViewModel(){
@@ -70,6 +67,22 @@ class AuthViewModel internal constructor(private val authRepository: AuthReposit
     fun getCardInfoData() : LiveData<ApiCallback<CardUseInfoItem>> = liveData(viewModelScope.coroutineContext) {
         emit(ApiCallback.OnLoading("Loading"))
         when(val callApi = authRepository.getCardInfoApi()){
+            is ApiResult.Success -> {
+                if (callApi.data?.Status == 200){
+                    emit(ApiCallback.OnSuccess(callApi.data.data, callApi.data.Message))
+                } else {
+                    emit(ApiCallback.OnError(callApi.data?.Status, callApi.data?.Message))
+                }
+            }
+            is ApiResult.Error ->{
+                emit(ApiCallback.OnError(callApi.status, callApi.message))
+            }
+        }
+    }
+
+    fun getUpdateProfileData(requestBody: RequestBody) : LiveData<ApiCallback<UpdateProfileItem>> = liveData(viewModelScope.coroutineContext) {
+        emit(ApiCallback.OnLoading("Loading"))
+        when(val callApi = authRepository.getUpdateProfileApi(requestBody)){
             is ApiResult.Success -> {
                 if (callApi.data?.Status == 200){
                     emit(ApiCallback.OnSuccess(callApi.data.data, callApi.data.Message))

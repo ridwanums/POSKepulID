@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialog.DialogDeleteEmailFragment"
+    style="@style/Animation.Design.BottomSheetDialog">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/ic_background_input"
+            android:backgroundTint="@color/grey_old"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_130sdp"/>
+
+        <TextView
+            android:id="@+id/btn_text_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Delete Email Address"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/_16sdp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/btn_text_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:gravity="center"
+            android:text="Cancel"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_50sdp"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

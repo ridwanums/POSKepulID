@@ -69,7 +69,6 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        onResume()
         setView(view)
         return binding.root
     }
@@ -99,6 +98,7 @@ class HomeFragment : Fragment() {
                 is ApiCallback.OnError -> {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                     val out = Intent(requireContext(), LoginActivity::class.java)
+                    startActivity(out)
                     DataManager.getInstance().isLogin = false
 
                 }

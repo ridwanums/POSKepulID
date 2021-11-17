@@ -45,7 +45,7 @@ class MemberVoucherFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        binding.recycleMemberVoucher.adapter = MemberVoucherAdapter("data")
+//        binding.recycleMemberVoucher.adapter = MemberVoucherAdapter("data")
     }
 
     companion object {

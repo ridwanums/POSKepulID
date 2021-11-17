@@ -5,20 +5,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import co.id.codelabs.thesavia.utils.RecentUtils
 import com.example.ambarrukmo.R
 import com.example.ambarrukmo.databinding.ItemDropDownBinding
+import com.example.ambarrukmo.viewmodel.content.result.ContentItem
 
-class PrivacyPoliceAdapter (private  val detailFaq : Boolean) : RecyclerView.Adapter<PrivacyPoliceAdapter.ViewHolder>(){
-    private var data = String()
+class PrivacyPoliceAdapter (val data : ContentItem, val detail : Boolean) : RecyclerView.Adapter<PrivacyPoliceAdapter.ViewHolder>(){
+    val initData = data.privacy_policies
     inner class ViewHolder (val binding : ItemDropDownBinding) : RecyclerView.ViewHolder(binding.root){
         init {
             binding.root.setOnClickListener {
                 if (binding.layoutViewBottom.visibility == View.GONE){
                     binding.layoutViewBottom.visibility = View.VISIBLE
-                    binding.imgAdd.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.ic_close))
+                    binding.imgAdd.setImageDrawable(ContextCompat.getDrawable(itemView.context,
+                        R.drawable.ic_close))
                 } else {
                     binding.layoutViewBottom.visibility = View.GONE
-                    binding.imgAdd.setImageDrawable(ContextCompat.getDrawable(itemView.context, R.drawable.ic_plus))
+                    binding.imgAdd.setImageDrawable(ContextCompat.getDrawable(itemView.context,
+                        R.drawable.ic_plus
+                    ))
                 }
             }
         }
@@ -30,11 +35,13 @@ class PrivacyPoliceAdapter (private  val detailFaq : Boolean) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.binding.textDesc.text = data.toString()
-//        holder.binding.textDesc.text = data[position].content
+        val dataItem = initData[position]
+        val desc = RecentUtils.fromHtml(dataItem.content)
+        holder.binding.textTitle.text = dataItem.title
+        holder.binding.textDesc.text = desc
 
-        if (detailFaq){
-            holder.binding.imgAdd.visibility =View.VISIBLE
+        if(detail){
+            holder.binding.imgAdd.visibility = View.GONE
             holder.binding.layoutViewBottom.visibility = View.VISIBLE
         } else {
             holder.binding.imgAdd.visibility = View.VISIBLE
@@ -43,7 +50,6 @@ class PrivacyPoliceAdapter (private  val detailFaq : Boolean) : RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-//        return data.size
-        return 1
+        return initData.size
     }
 }

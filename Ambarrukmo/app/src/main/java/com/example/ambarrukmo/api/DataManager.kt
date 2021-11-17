@@ -75,6 +75,7 @@ class DataManager {
     var storeId : String? get() {return getTempString(STORE_ID)} set(value) = putTempString(STORE_ID,value)
     var numberValet : Int? get(){ return getTempInt(NUMBER_VALET)} set(value) = putTempInt(NUMBER_VALET, value)
 
+
     var providerLogin :String? get() {return getTempString(PROVIDER_LOGIN)} set(value) = putTempString(PROVIDER_LOGIN,value)
     var promoID :String? get() {return getTempString(PROMO_ID)} set(value) = putTempString(PROMO_ID,value)
 
@@ -100,6 +101,13 @@ class DataManager {
     companion object {
         // TODO: CHANGE THIS TO SOMETHING MEANINGFUL
 
+        //Ambarukmo
+        private const val NUMBER_VALET = "number-valet"
+        private const val FLOOR_MAP = "floor-map"
+        private const val MERCHANT_ID = "merchant-id"
+        
+
+
 
         private const val AUTH_TOKEN = "auth-token"
         private const val USER_TOKEN = "user-token"
@@ -107,9 +115,7 @@ class DataManager {
         private const val IS_LOGIN = "is-member"
         private const val MEMBER_ID = "member-id"
         private const val COMPANY_CODE = "company-code"
-        private const val NUMBER_VALET = "number-valet"
-        private const val FLOOR_MAP = "floor-map"
-        private const val MERCHANT_ID = "merchant-id"
+
 
         //SOSMED
         private const val PROVIDER_LOGIN = "provider-login"

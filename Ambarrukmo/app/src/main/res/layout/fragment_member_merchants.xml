@@ -6,27 +6,160 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.MemberMerchantsFragment">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
+            android:layout_height="match_parent">
+
+            <HorizontalScrollView
+                android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabMode="scrollable"
-                app:tabInlineLabel="true"
-                app:tabSelectedTextColor="@color/brown_cr"
-                app:tabTextAppearance="@style/TextTabLayout"
-                app:tabGravity="center"
-                app:tabIndicatorFullWidth="false"
-                app:tabMinWidth="@dimen/_100sdp"/>
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPager"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_AllMerchant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category">
+                        <TextView
+                            android:id="@+id/text_AllMerchant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="All Merchants"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_dining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_dining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Dining"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_lifestyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_lifestyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/_8sdp"
+                            android:text="E-Lifestyle"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Style"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_beauty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_beauty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Beauty"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_HomeLiving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_HomeLiving"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Home Living"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_Kids"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_category_un"
+                        android:layout_marginStart="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/text_Kids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Kids"
+                            android:textColor="@color/grey_old"
+                            android:textSize="@dimen/_10ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"/>
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <FrameLayout
+                android:id="@+id/transition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_20sdp"/>
-        </LinearLayout>
-
+                android:layout_below="@id/scroll_view"/>
+        </RelativeLayout>
 
 </FrameLayout>

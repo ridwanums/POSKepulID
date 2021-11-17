@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.viewpager.widget.ViewPager
 import co.id.codelabs.thesavia.utils.InjectorUtils
 import co.id.codelabs.thesavia.utils.RecentUtils
+import com.example.ambarrukmo.adapter.DetailImageAdapter
 import com.example.ambarrukmo.adapter.MerchantsDetailViewAdapter
 import com.example.ambarrukmo.adapter.TestimonialAdapter
 import com.example.ambarrukmo.api.ApiCallback
@@ -97,9 +98,11 @@ class DetailMerchantsActivity : AppCompatActivity() {
         detailMerchantsItem = data
         val adapter = MerchantsDetailViewAdapter(applicationContext, data)
         val testimonial = TestimonialAdapter(applicationContext, data)
+        val imageAdapter = DetailImageAdapter(data)
 
         binding.viewPagerCategory.adapter = adapter
         binding.viewPagerTestimony.adapter = testimonial
+        binding.recyclerViewCategory.adapter = imageAdapter
 
         val desc = RecentUtils.fromHtml(data.merchant_description)
         binding.textRatting.setRating(data.total_rating_stars.toFloat())
@@ -107,6 +110,7 @@ class DetailMerchantsActivity : AppCompatActivity() {
         binding.textAddress.text = data.merchant_address
         binding.textNilai.text = data.total_rating
         binding.textCategory.text = data.categories.first().cat_name
+        binding.textTitle.text = data.merchant_name
         binding.textDesc.text = desc
     }
 

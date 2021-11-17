@@ -1,5 +1,6 @@
 package com.example.ambarrukmo.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,13 +20,14 @@ class LoginActivity : AppCompatActivity() {
         InjectorUtils.ProviderAuthFactory()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textInputNohp.setText("081288581031")
-        binding.textInputPassword.setText("123456")
+        binding.textInputNohp.setText("081110500567")
+        binding.textInputPassword.setText("1234")
         binding.imageClose.setOnClickListener {
             onBackPressed()
         }

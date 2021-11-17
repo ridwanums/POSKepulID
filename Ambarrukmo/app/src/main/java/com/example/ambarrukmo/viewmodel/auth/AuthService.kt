@@ -1,10 +1,7 @@
 package com.example.ambarrukmo.viewmodel.auth
 
 import com.example.ambarrukmo.api.ApiResponse
-import com.example.ambarrukmo.viewmodel.auth.result.AuthenticateUserItem
-import com.example.ambarrukmo.viewmodel.auth.result.CardUseInfoItem
-import com.example.ambarrukmo.viewmodel.auth.result.LoginItem
-import com.example.ambarrukmo.viewmodel.auth.result.RegisterItem
+import com.example.ambarrukmo.viewmodel.auth.result.*
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -23,4 +20,7 @@ interface AuthService {
 
     @GET("card_info")
     suspend fun getCardInfo(): Response<ApiResponse<CardUseInfoItem?>?>
+
+    @POST("update_profile")
+    suspend fun getUpdateProfile(@Body requestBody: RequestBody): Response<ApiResponse<UpdateProfileItem?>?>
 }

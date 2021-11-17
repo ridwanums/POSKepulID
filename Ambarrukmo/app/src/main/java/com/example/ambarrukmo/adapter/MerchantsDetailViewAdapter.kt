@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.ambarrukmo.R
+import com.example.ambarrukmo.databinding.ActivityDetailMerchantsBinding
+import com.example.ambarrukmo.databinding.ItemDetailCategoryBinding
 import com.example.ambarrukmo.viewmodel.product.result.DetailMerchantsItem
 
 class MerchantsDetailViewAdapter (var context: Context, private val data : DetailMerchantsItem) : PagerAdapter() {
@@ -71,5 +74,26 @@ class TestimonialAdapter (var context: Context, private val data : DetailMerchan
         val view = `object` as View
         viewPager.removeView(view)
     }
+}
 
+class DetailImageAdapter(val data: DetailMerchantsItem): RecyclerView.Adapter<DetailImageAdapter.ViewHolder>(){
+    val image = data.images
+    inner class ViewHolder(val binding: ItemDetailCategoryBinding): RecyclerView.ViewHolder(binding.root){
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemDetailCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val dataItem = image[position]
+        val context = holder.itemView.context
+        Glide.with(context).load(dataItem.mc_image_filename).into(holder.binding.imageCategory)
+    }
+
+    override fun getItemCount(): Int {
+        return image.size
+    }
 }

@@ -6,10 +6,11 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.ambarrukmo.api.ApiCallback
 import com.example.ambarrukmo.api.ApiResult
+import com.example.ambarrukmo.viewmodel.content.result.ContentItem
 import com.example.ambarrukmo.viewmodel.content.result.Faq
 
 class ContentViewModel internal constructor(private val contentRepository: ContentRepository) : ViewModel() {
-    fun getFaqData() : LiveData<ApiCallback<Faq>> = liveData(viewModelScope.coroutineContext){
+    fun getFaqData() : LiveData<ApiCallback<ContentItem>> = liveData(viewModelScope.coroutineContext){
         emit(ApiCallback.OnLoading("Loading"))
         when(val callApi = contentRepository.getFaqApi()){
             is ApiResult.Success -> {
